@@ -116,6 +116,24 @@ Schema details deferred to R1 ADR.
 ## References
 
 - `/90-docs/adr/2605261115-makura-foam-pillow-tier-b-actor-r0.md` — Master ADR
-- `/20-actors/tatekata/README.md` — yard-sharing partner
-- `/20-actors/kuni-umi/README.md` — robotics class inheritance (Otete / Mimi / Hitogata / Quad)
+- `/orgs/etzhayyim/com-etzhayyim-tatekata/README.md` — yard-sharing partner
+- `/orgs/etzhayyim/com-etzhayyim-kuni-umi/README.md` — robotics class inheritance (Otete / Mimi / Hitogata / Quad)
 - `/CLAUDE.md` — Religious-corp status table
+
+## Standalone layout and verification
+
+- `manifest.edn` — canonical actor manifest
+- `src/makura/` — canonical CLJ/CLJC runtime and tooling
+- `data/lex/*.edn` — canonical semantic lexicons
+- `data/lex-datoms/*.edn` — derived Datomic projections
+- `data/cells`, `data/seed.edn`, `data/products.edn` — canonical actor data
+- `schema/` — actor and kotoba schemas
+- `wire/` — JSON/JSON-LD interoperability snapshots
+
+```sh
+bb test
+bb audit
+```
+
+Python, Go/TinyGo, requirements files, and shell deployment/test wrappers are
+deprecated and forbidden by the audit.

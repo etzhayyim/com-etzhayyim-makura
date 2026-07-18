@@ -1,4 +1,4 @@
-# 20-actors/makura — CLAUDE.md
+# com-etzhayyim-makura — CLAUDE.md
 
 ## Identity
 
@@ -42,7 +42,7 @@ pillow_fabric_attestation ──> pillow_shell_sewing ──> pillow_filling_clo
 
 ## Constitutional Gates (G1–G14)
 
-**IMMUTABLE R0–R3.** Stored in `manifest.jsonld` under `makura:constitutionalGates`. Changes require Council Lv6+ supermajority + new ADR.
+**IMMUTABLE R0–R3.** Stored canonically in `manifest.edn` under `:actor/manifest`. Changes require Council Lv6+ supermajority + new ADR.
 
 See `ADR-2605261115` §4 for definitions. Key enforcement:
 
@@ -156,38 +156,19 @@ See `ADR-2605261115` §4 for definitions. Key enforcement:
 4. Benchtop ≤1 kg foam batch + 10-pillow lot demonstrated
 5. Cell source replaces RuntimeError with LangGraph stub bodies
 
-**Deployment** (R1+):
-
-```bash
-cd 20-actors/makura
-e7m actor deploy .
-```
-
-Returns error in R0; waits for R1 ADR activation.
+Live deployment is outside R0 and remains Council/ADR-gated.
 
 ## Testing (R0)
 
-**Smoke test**: Verify all 9 cells import without exception:
-
-```bash
-cd kotoba-lang/kotodama-cells
-python -c "from cells.pillow_polyol_attestation import PillowPolyolAttestationCell; assert PillowPolyolAttestationCell"
-python -c "from cells.pillow_isocyanate_dispensing import PillowIsocyanateDispensingCell; assert PillowIsocyanateDispensingCell"
-python -c "from cells.pillow_foam_blowing import PillowFoamBlowingCell; assert PillowFoamBlowingCell"
-python -c "from cells.pillow_foam_shredding import PillowFoamShreddingCell; assert PillowFoamShreddingCell"
-python -c "from cells.pillow_fabric_attestation import PillowFabricAttestationCell; assert PillowFabricAttestationCell"
-python -c "from cells.pillow_shell_sewing import PillowShellSewingCell; assert PillowShellSewingCell"
-python -c "from cells.pillow_filling_close import PillowFillingCloseCell; assert PillowFillingCloseCell"
-python -c "from cells.pillow_qc import PillowQcCell; assert PillowQcCell"
-python -c "from cells.pillow_packaging import PillowPackagingCell; assert PillowPackagingCell"
+```sh
+bb test
+bb audit
 ```
-
-All should pass import; `.solve()` calls should raise `RuntimeError("makura R0 scaffold...")`.
 
 ## Related Files
 
-- `/20-actors/makura/manifest.jsonld` — DID + cell registry + gates + non-goals
+- `manifest.edn` — DID + cell registry + gates + non-goals
 - `/90-docs/adr/2605261115-makura-foam-pillow-tier-b-actor-r0.md` — Master ADR
-- `/20-actors/tatekata/README.md` — R2 yard-sharing partner
-- `/20-actors/kuni-umi/README.md` — robotics class inheritance
+- `/orgs/etzhayyim/com-etzhayyim-tatekata/README.md` — R2 yard-sharing partner
+- `/orgs/etzhayyim/com-etzhayyim-kuni-umi/README.md` — robotics class inheritance
 - `/CLAUDE.md` — Religious-corp status table

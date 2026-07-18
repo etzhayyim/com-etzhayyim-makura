@@ -6,11 +6,12 @@ no embedded electronics (anti-surveillance for consumer goods).
 
 | Dimension | State |
 |---|---|
-| Lexicons | ✅ 8 under `com.etzhayyim.makura.*` (fabric / foamBatch / pillowLot / qc / packaging / recyclingCertificate / workerExposure / silenComfortReview) |
+| Lexicons | ✅ 8 canonical semantic EDN under `data/lex`; Datomic projections under `data/lex-datoms`; JSON snapshots under `wire/lex` |
 | Cells | 🟡 9 path-reserved (5-layer foam-pillow assembly, R0) |
-| Manifest | ✅ `manifest.jsonld` — `constitutionalGates` (G1–G14) + `nonGoals` (N1–N10) machine-readable |
-| Tests | ✅ **14 green** — `methods/test_charter_gates.py` (**8**, added 2026-06-16: gate set + no-electronics + KPI/BoM/take-back + worker-exposure + FR + witness/bilingual + charter scan + recycling loop) **+** `py/test_agent.py` (6, agent layer); `./run_tests.sh` aggregates both |
-| Methods | 🟡 agent present; offline foam engine = R1 |
+| Manifest | ✅ canonical `manifest.edn` — gates G1–G14 + non-goals N1–N10 |
+| Tests | ✅ `bb test`: **27 tests / 55 assertions / 0 failures** (2026-07-18) |
+| Methods | 🟡 canonical CLJC agent + Murakumo 9-cell planner; offline foam engine = R1 |
+| Audit | ✅ EDN syntax, canonical/wire lexicon names, wire boundary, deprecated artifacts |
 
 ## Charter gates pinned by the new charter-gate test
 
