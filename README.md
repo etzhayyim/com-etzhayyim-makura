@@ -105,6 +105,16 @@ com.etzhayyim.makura.{
 
 Schema details deferred to R1 ADR.
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/pillow_*` is legacy source
+during migration. New makura cell orchestration belongs in
+`src/makura/murakumo.cljc` as pure `.cljc` actor plans. The plans preserve R0
+scaffold behavior by emitting no write effects until Council, silen-comfort,
+PU-chemist, industrial-hygienist, robot-witness, safety, and cell-specific
+baseline attestations are supplied. Host placement remains in
+`kotoba-lang/murakumo`; AT Protocol/PDS surfaces remain in `gftdcojp/app-aozora`.
+
 ## Integration
 
 - **Sibling actors**: kuni-umi (planetary infra), wadachi (ground mobility), tatekata (construction), yakushi (pharma), watatsumi (submersible), mitsuho (food/agri), hagukumi (care)
