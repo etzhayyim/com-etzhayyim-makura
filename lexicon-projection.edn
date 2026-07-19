@@ -1,0 +1,7 @@
+{:schema "etzhayyim.lexicon-projection/v1"
+ :canonical-source "data/lex/*.edn"
+ :wire-output "wire/lex/*.json"
+ :generator {:repo "etzhayyim/com-etzhayyim-lexicons-bundle"
+             :revision "3a99ed3871d1e344bd09955799df0ee43e98f05c"
+             :script "scripts/project-edn-lexicons.clj"}
+ :contracts 8}
